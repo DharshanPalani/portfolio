@@ -1,6 +1,6 @@
 function BlogPost() {
     return (
-    <div className="col-span-4 row-span-1 bg-blue-100/70 rounded-2xl p-4 hover:shadow-lg transition-all animate-pop-up">
+    <div className="col-span-4 row-span-2 bg-blue-100/70 rounded-2xl p-4 hover:shadow-lg transition-all animate-pop-up">
         <div className="mb-3">
         <h3 className="flex items-center font-semibold text-gray-800">
             <span className="bg-pink-600 w-2 h-2 mr-2 rounded-full"></span> Current work / Blog
