@@ -5,6 +5,7 @@ import Skills from './components/Skills';
 import RecentWorks from './components/RecentWorks';
 import Interest from './components/Interest';
 import BlogPost from './components/BlogPost';
+import PlaceHolder from './components/PlaceHolder';
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
         <Interest/>
 
         <BlogPost/>
+
+        <PlaceHolder/>
 
       </div>
     </div>
