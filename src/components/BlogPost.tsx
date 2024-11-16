@@ -11,7 +11,7 @@ function BlogPost() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('https://portfolio-backend-production-1789.up.railway.app/posts')
+                const response = await fetch('https://portfolio-backend-production-1789.up.railway.app/post')
                 const data = await response.json()
                 const formattedPosts = data.map((post: { title: string; created_at: string }) => {
                     const date = new Date(post.created_at)
