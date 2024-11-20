@@ -9,7 +9,8 @@ function RecentWorks() {
             <div className="space-y-3">
                 {[
                 { title: 'E-commerce website', desc: 'A simple front-end e-commerce site', tech: ['React', 'Node.js', 'Figma'], link: 'https://e-front-dharshan.vercel.app/' },
-                { title: 'React terminal', desc: 'A web-based Linux terminal with basic functionality', tech: ['React', 'Node.js'], link: 'https://react-simple-terminal-ui.vercel.app/' }
+                { title: 'React terminal', desc: 'A web-based Linux terminal with basic functionality', tech: ['React', 'Node.js'], link: 'https://react-simple-terminal-ui.vercel.app/' },
+                { title: 'Group chat', desc: 'A full-stack chat app where people can create and chat in their group', tech: ['React', 'Node.js', 'Tailwind css'], link: 'https://groupchat-socket-io.vercel.app/'}
                 ].map((work) => (
                 <a href={work.link} key={work.title} target="_blank" rel="noopener noreferrer">
                     <div className="flex flex-col gap-2 bg-pink-100/70 rounded-lg p-3 hover:bg-pink-200/70 transition-all">
