@@ -1,32 +1,45 @@
-import Profile from './components/Profile';
-import Abouts from './components/About';
-import Contacts from './components/Contacts';
-import Skills from './components/Skills';
-import RecentWorks from './components/RecentWorks';
-import Interest from './components/Interest';
-import BlogPost from './components/BlogPost';
-import PlaceHolder from './components/PlaceHolder';
+import React, { Suspense } from 'react';
+
+// Lazy Load Components for Performance
+const Profile = React.lazy(() => import('./components/Profile'));
+const Abouts = React.lazy(() => import('./components/About'));
+const Contacts = React.lazy(() => import('./components/Contacts'));
+const Skills = React.lazy(() => import('./components/Skills'));
+const RecentWorks = React.lazy(() => import('./components/RecentWorks'));
+const Interest = React.lazy(() => import('./components/Interest'));
+const BlogPost = React.lazy(() => import('./components/BlogPost'));
+const PlaceHolder = React.lazy(() => import('./components/PlaceHolder'));
 
 function App() {
   return (
-    <div className="h-screen bg-gradient-to-br from-blue-50 to-pink-50 p-4">
-      <div className="h-full max-w-7xl mx-auto grid grid-cols-12 grid-rows-6 gap-3">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-pink-50 p-4">
+      <div className="h-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-3">
 
-        <Profile/>
+        <Suspense fallback={<div className="text-center col-span-12">Loading...</div>}>
+          {/* Profile Component */}
+          <Profile className="col-span-12 md:col-span-6 lg:col-span-4" />
 
-        <Abouts/>
+          {/* Abouts Component */}
+          <Abouts className="col-span-12 md:col-span-6 lg:col-span-4" />
 
-        <Contacts/>
+          {/* Contacts Component */}
+          <Contacts className="col-span-12 md:col-span-6 lg:col-span-4" />
 
-        <Skills/>
+          {/* Skills Component */}
+          <Skills className="col-span-12 md:col-span-6 lg:col-span-4" />
 
-        <RecentWorks/>
+          {/* Recent Works Component */}
+          <RecentWorks className="col-span-12 md:col-span-6 lg:col-span-4" />
 
-        <Interest/>
+          {/* Interest Component */}
+          <Interest className="col-span-12 md:col-span-6 lg:col-span-4" />
 
-        <BlogPost/>
+          {/* Blog Post Component */}
+          <BlogPost className="col-span-12 md:col-span-6 lg:col-span-4" />
 
-        <PlaceHolder/>
+          {/* Placeholder Component */}
+          <PlaceHolder className="col-span-12 md:col-span-6 lg:col-span-4" />
+        </Suspense>
 
       </div>
     </div>

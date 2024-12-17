@@ -5,7 +5,11 @@ type Post = {
     created_at: string
 }
 
-function BlogPost() {
+interface BlogPostProps extends React.HTMLAttributes<HTMLDivElement> {
+  className?: string;
+}
+
+function BlogPost({ className, ...props }: BlogPostProps) {
     const [posts, setPosts] = useState<Post[]>([])
 
     useEffect(() => {
@@ -31,7 +35,12 @@ function BlogPost() {
     }, [])
 
     return (
-        <div className="col-span-4 row-span-2 bg-blue-100/70 rounded-2xl p-4 hover:shadow-lg transition-all animate-pop-up">
+        <div
+            className={`col-span-4 row-span-2 bg-blue-100/70 rounded-2xl p-4 hover:shadow-lg transition-all animate-pop-up ${
+                className || ''
+            }`}
+            {...props} // spread any additional props
+        >
             <div className="mb-3">
                 <h3 className="flex items-center font-semibold text-gray-800">
                     <span className="bg-pink-600 w-2 h-2 mr-2 rounded-full"></span> Current work / Blog
@@ -39,7 +48,10 @@ function BlogPost() {
             </div>
             {posts.length > 0 ? (
                 posts.map((post, index) => (
-                    <div key={index} className="flex items-center justify-between bg-pink-100/70 rounded-lg p-2 hover:bg-pink-200/70 transition-all mb-2">
+                    <div
+                        key={index}
+                        className="flex items-center justify-between bg-pink-100/70 rounded-lg p-2 hover:bg-pink-200/70 transition-all mb-2"
+                    >
                         <h4 className="text-xs font-medium text-gray-800">{post.title}</h4>
                         <span className="text-xs text-gray-600">{post.created_at}</span>
                     </div>
@@ -53,4 +65,4 @@ function BlogPost() {
     )
 }
 
-export default BlogPost
+export default BlogPost;
